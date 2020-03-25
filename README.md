@@ -17,7 +17,7 @@ The local timezone for **grader** is configured to UTC with the following comman
 ```sh
 $ sudo timedatectl set-timezone UTC
 ```
-### Configuring Apache
+### Installation and Configuring Apache
 **Apache** web server is installed with the following command.
 ```sh
 $ sudo apt-get install apache2
@@ -26,7 +26,8 @@ The **Book Catalog** project is built with Python 3, so the Python 3 mod_wsgi pa
 ```sh
 $ sudo apt-get install libapache2-mod-wsgi-py3
 ```
-### Configuring PostgreSQL
+### Insatllation and Configuring PostgreSQL
+#### Creating *catalog* user
 ## Deploying Project
 ## List of Resourses
 - [How to Set or Change the Time Zone in Linux](https://linuxize.com/post/how-to-set-or-change-timezone-in-linux/#changing-the-time-zone-in-linux)
