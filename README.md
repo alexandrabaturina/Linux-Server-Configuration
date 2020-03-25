@@ -26,7 +26,7 @@ The **Book Catalog** project is built with Python 3, so the Python 3 mod_wsgi pa
 ```sh
 $ sudo apt-get install libapache2-mod-wsgi-py3
 ```
-### Insatllation and Configuring PostgreSQL
+### Installation and Configuring PostgreSQL
 #### Creating *catalog* user
 ## Deploying Project
 ## List of Resourses
