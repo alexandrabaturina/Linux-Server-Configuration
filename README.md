@@ -17,7 +17,7 @@ The local timezone for **grader** is configured to UTC with the following comman
 ```sh
 $ sudo timedatectl set-timezone UTC
 ```
-### Installation and Configuring Apache
+### Installing and Configuring Apache
 **Apache** web server is installed with the following command.
 ```sh
 $ sudo apt-get install apache2
@@ -26,7 +26,7 @@ The **Book Catalog** project is built with Python 3, so the Python 3 mod_wsgi pa
 ```sh
 $ sudo apt-get install libapache2-mod-wsgi-py3
 ```
-### Installation and Configuring PostgreSQL
+### Installing and Configuring PostgreSQL
 #### Creating *catalog* user
 ## Deploying Project
 ## List of Resourses
