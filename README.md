@@ -18,7 +18,7 @@ The local timezone for **grader** is configured to UTC with the following comman
 $ sudo timedatectl set-timezone UTC
 ```
 ### Installing and Configuring Apache
-**Apache** web server is installed with the following command.
+**Apache** web server is installed using the following command.
 ```sh
 $ sudo apt-get install apache2
 ```
@@ -27,7 +27,32 @@ The **Book Catalog** project is built with Python 3, so the Python 3 mod_wsgi pa
 $ sudo apt-get install libapache2-mod-wsgi-py3
 ```
 ### Installing and Configuring PostgreSQL
+**PostgreSQL** database server is installed using the following command.
+```sh
+$ sudo apt-get install postgresql
+```
+To disable remote connections to a **PostgreSQL** database, in **PostgreSQL** client authentication configuration file  ```/etc/postgresql/9.5/main/pg_hba.conf``` listen addresses are set to ```127.0.0.1```.
+```sh
+# Database administrative login by Unix domain socket
+local   all             postgres                                peer
+
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# "local" is for Unix domain socket connections only
+local   all             all                                     peer
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            md5
+# IPv6 local connections:
+host    all             all             ::1/128                 md5
+```
 #### Creating *catalog* user
+Database user **catalog** with limited permissions to **Book Catalog** database is created via interactive terminal for working with Postgres using the following commands.
+```sh
+postgres=# create user catalog with login password 'catalog'; 
+CREATE ROLE 
+postgres=# alter user catalog with createdb; 
+ALTER ROLE 
+```
 ## Deploying Project
 ## List of Resourses
 - [How to Set or Change the Time Zone in Linux](https://linuxize.com/post/how-to-set-or-change-timezone-in-linux/#changing-the-time-zone-in-linux)
