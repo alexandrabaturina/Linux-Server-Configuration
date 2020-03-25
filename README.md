@@ -81,6 +81,10 @@ postgres=# alter user catalog with createdb;
 ALTER ROLE 
 ```
 ## Deploying Project
+### Creating Flask Application Directory
+### Intalling Flask
+### Creating Configuration File
+### Creating .wsgi File
 ## List of Resourses
 - [How to Set or Change the Time Zone in Linux](https://linuxize.com/post/how-to-set-or-change-timezone-in-linux/#changing-the-time-zone-in-linux)
 - [How To Set Up a Firewall with UFW on Ubuntu 18.04](https://linuxize.com/post/how-to-setup-a-firewall-with-ufw-on-ubuntu-18-04/)
