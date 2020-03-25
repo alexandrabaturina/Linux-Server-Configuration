@@ -81,8 +81,21 @@ postgres=# alter user catalog with createdb;
 ALTER ROLE 
 ```
 ## Deploying Project
-### Creating Flask Application Directory
-### Intalling Flask
+### Creating Flask Application Structure
+To allow **Apache** to serve the **Book Catalog** project as a ```WSGI``` applicaton, the following folder structure is used.
+```sh
+/bookCatalog
+----bookcatalog.wsgi
+----/bookCatalog
+--------/static
+--------/templates
+--------__init__.py
+--------client_secrets.json
+--------database_setup.py
+--------lotsofitems.py
+```
+### Installing Flask and Application Dependencies
+
 ### Creating Configuration File
 ### Creating .wsgi File
 ## List of Resourses
@@ -90,5 +103,6 @@ ALTER ROLE
 - [How To Set Up a Firewall with UFW on Ubuntu 18.04](https://linuxize.com/post/how-to-setup-a-firewall-with-ufw-on-ubuntu-18-04/)
 - [How to Deploy a Flask App to a Linux Server](https://www.youtube.com/watch?v=YFBRVJPhDGY&list=LLrB69AKIO0ESnb0rzqTZZ4g)
 - [Flask mod_wsgi official documentation](https://flask.palletsprojects.com/en/1.1.x/deploying/mod_wsgi/#configuring-apache)
+- [Official PostgreSQL documentation. The pg_hba.conf File](https://www.postgresql.org/docs/9.5/auth-pg-hba-conf.html)
 ## Authors
 Alexandra Baturina
