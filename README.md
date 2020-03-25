@@ -19,7 +19,7 @@ To host SSH on a non-default port, ```port 22``` is changed to ```port 2200``` i
 Port 2200
 ```
 
-UFW is configured to only allow connections for ```SSH``` (port 2200), ```HTTP``` (port 80), and ```NTP``` (port 123). The list of rules for UFW is below.
+UFW is configured to only allow connections for ```SSH``` (port 2200), ```HTTP``` (port 80), and ```NTP``` (port 123). Below is the list of current UFW rules.
 ```sh
 Status: active
 Default: deny (incoming), allow (outgoing), disabled (routed)
