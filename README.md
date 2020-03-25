@@ -84,19 +84,46 @@ ALTER ROLE
 ### Creating Flask Application Structure
 To allow **Apache** to serve the **Book Catalog** project as a ```WSGI``` applicaton, the following folder structure is used.
 ```sh
-/bookCatalog
-----bookcatalog.wsgi
-----/bookCatalog
---------/static
---------/templates
---------__init__.py
---------client_secrets.json
---------database_setup.py
---------lotsofitems.py
+bookCatalog/
+    bookcatalog.wsgi
+    bookCatalog/
+        static/
+        templates/
+        __init__.py
+        client_secrets.json
+        database_setup.py
+        lotsofitems.py
 ```
 ### Installing Flask and Application Dependencies
 
 ### Creating Configuration File
+Virtual host configured in ```bookCatalog.conf``` file under ```/etc/apache2/sites-available/```.
+```sh
+<VirtualHost *:80>
+                ServerName 54.191.192.22
+                WSGIScriptAlias / /var/www/bookCatalog/bookcatalog.wsgi
+                <Directory /var/www/bookCatalog/bookCatalog/>
+                        Order allow,deny
+                        Allow from all
+                </Directory>
+                Alias /static /var/www/bookCatalog/bookCatalog/static
+                <Directory /var/www/bookCatalog/bookCatalog/static/>
+                        Order allow,deny
+                        Allow from all
+                </Directory>
+                DocumentRoot /var/www/html
+                ErrorLog ${APACHE_LOG_DIR}/error.log
+                LogLevel warn
+                CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+```
+To enable the configured virtual host and disable the default Apache configuration, the following commands are used.
+```sh
+$ sudo a2ensite bookCatalog
+$ sudo a2dissite 000-default.conf
+```
+
 ### Creating .wsgi File
 ## List of Resourses
 - [How to Set or Change the Time Zone in Linux](https://linuxize.com/post/how-to-set-or-change-timezone-in-linux/#changing-the-time-zone-in-linux)
