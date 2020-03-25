@@ -12,3 +12,4 @@ Project 3 for Udacity Full Stack Web Developer Nanodegree
 ## Deploying Project
 ## List of Resourses
 ## Authors
+Alexandra Baturina
