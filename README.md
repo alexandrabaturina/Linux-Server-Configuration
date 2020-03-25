@@ -123,8 +123,28 @@ To enable the configured virtual host and disable the default Apache configurati
 $ sudo a2ensite bookCatalog
 $ sudo a2dissite 000-default.conf
 ```
+### Creating WSGI File
+The ```bookcatalog.wsgi``` file under ```/var/www/bookCatalog/``` is below.
+```sh
+#!/usr/bin/python
+import sys
+import logging
+logging.basicConfig(stream=sys.stderr)
+sys.path.insert(0,"/var/www/bookCatalog/")
 
-### Creating .wsgi File
+from bookCatalog import app as application
+application.secret_key = 'alexandrabaturina'
+```
+### Pupulating the Database
+Under ```catalog``` user, the empty ```catalogitems``` database is created.
+```sh
+$ CREATE DATABASE catalogitems;
+```
+To populate the database from the ```lotsoitems.py``` file, run the following commands.
+```sh
+$ python3 database_setup.py
+$ python3 lotsofitems.py
+```
 ## List of Resourses
 - [How to Set or Change the Time Zone in Linux](https://linuxize.com/post/how-to-set-or-change-timezone-in-linux/#changing-the-time-zone-in-linux)
 - [How To Set Up a Firewall with UFW on Ubuntu 18.04](https://linuxize.com/post/how-to-setup-a-firewall-with-ufw-on-ubuntu-18-04/)
