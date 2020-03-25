@@ -8,8 +8,35 @@
 Verify the deployment by visiting http://54.191.192.22/.
 
 ## Securing Server
-### Configuring Lightsail Firewall
+To secure the server, the following steps are taken.
+- All currently installed packages are updated using ```sudo apt-get update``` and ```sudo apt-get upgrade``` commands
+- The *Lightsail* firewall is configured to allow incoming connections for SSH (port 2200)
+-  The *Uncomplicated Firewall* (UFW) is configured to allow connections according to project specifications 
 ### Configuring Uncomplicated Firewall
+To host SSH on a non-default port, ```port 22``` is changed to ```port 2200``` in configuration file ```/etc/ssh/sshd_config```.
+```sh
+# What ports, IPs and protocols we listen for
+Port 2200
+```
+
+UFW is configured to only allow connections for ```SSH``` (port 2200), ```HTTP``` (port 80), and ```NTP``` (port 123). The list of rules for UFW is below.
+```sh
+Status: active
+Default: deny (incoming), allow (outgoing), disabled (routed)
+
+To                         Action      From
+--                         ------      ----
+22                         DENY IN     Anywhere
+2200                       ALLOW IN    Anywhere
+80                         ALLOW IN    Anywhere
+123                        ALLOW IN    Anywhere
+123/udp                    ALLOW IN    Anywhere
+22 (v6)                    DENY IN     Anywhere (v6)
+2200 (v6)                  ALLOW IN    Anywhere (v6)
+80 (v6)                    ALLOW IN    Anywhere (v6)
+123 (v6)                   ALLOW IN    Anywhere (v6)
+123/udp (v6)               ALLOW IN    Anywhere (v6)
+```
 ## Preparing for Deploying
 ## Configuring Server
 ### Configuring Timezone
