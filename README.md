@@ -13,6 +13,10 @@ Verify the deployment by visiting http://54.191.192.22/.
 ## Preparing for Deploying
 ## Configuring Server
 ### Configuring Timezone
+The local timezone for **grader** is configured to UTC with the following command.
+```sh
+sudo timedatectl set-timezone UTC
+```
 ### Configuring Apache
 ### Configuring PostgreSQL
 ## Deploying Project
