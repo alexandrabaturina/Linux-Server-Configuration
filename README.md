@@ -94,8 +94,18 @@ bookCatalog/
         database_setup.py
         lotsofitems.py
 ```
-### Installing Flask and Application Dependencies
+### Installing Software and Python Dependencies
+The following programs are installed on the server.
+* ```git```: to clone the **Book Catalog** project from *GitHub*
+* ```pip```: to install some Python modules
 
+The **Book Catalog** project is built using Flask, which is installed via ```$ pip install Flask```.
+
+The following Python modules and dependencies are installed on the server.
+* flask_sqlalchemy: to work with SQLAlchemy
+* httplib2: to provide web access via HTTP
+* psycopg2: to connect and work with PostgreSQL server
+* oauth2client: to work with OAuth 2.0
 ### Creating Configuration File
 Virtual host configured in ```bookCatalog.conf``` file under ```/etc/apache2/sites-available/```.
 ```sh
