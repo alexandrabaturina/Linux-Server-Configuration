@@ -1,11 +1,16 @@
 # Linux Server Configuration
-**Linux Server Configuration** project of consists of the following steps.
-- Initial configuring of **Ubuntu** Linux server instance on **Amazon Lightsail**
-- Configuring Apache web server
-- Configuring PostgreSQL database server
-- Deploying **Book Catalog** application
+** Linux Server Configuration** project of consists of the following steps.
+- Initial configuring of *Ubuntu* Linux server instance on *Amazon Lightsail*
+- Configuring *Apache* web server
+- Configuring *PostgreSQL* database server
+- Deploying ```Book Catalog``` application
 
-Verify the deployment by visiting http://54.191.192.22/.
+Verify the deployment by visiting http://54.191.192.22.xip.io. 
+## Getting Started
+To review the project, the ```grader``` user with ```sudo``` permission was created. To log in to the server under ```grader``` user via port ```2200```, use the following command.
+```sh
+$ ssh grader@54.191.192.22 -p 2200 -i ~/.ssh/linuxServerUdacity
+```
 
 ## Securing Server
 To secure the server, the following steps are taken.
