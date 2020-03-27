@@ -161,10 +161,11 @@ $ python3 database_setup.py
 $ python3 lotsofitems.py
 ```
 ## List of Resourses
-- [How to Set or Change the Time Zone in Linux](https://linuxize.com/post/how-to-set-or-change-timezone-in-linux/#changing-the-time-zone-in-linux)
-- [How To Set Up a Firewall with UFW on Ubuntu 18.04](https://linuxize.com/post/how-to-setup-a-firewall-with-ufw-on-ubuntu-18-04/)
-- [How to Deploy a Flask App to a Linux Server](https://www.youtube.com/watch?v=YFBRVJPhDGY&list=LLrB69AKIO0ESnb0rzqTZZ4g)
-- [Flask mod_wsgi official documentation](https://flask.palletsprojects.com/en/1.1.x/deploying/mod_wsgi/#configuring-apache)
-- [Official PostgreSQL documentation. The pg_hba.conf File](https://www.postgresql.org/docs/9.5/auth-pg-hba-conf.html)
+* [Flask mod_wsgi official documentation](https://flask.palletsprojects.com/en/1.1.x/deploying/mod_wsgi/#configuring-apache)
+* [Official PostgreSQL documentation](https://www.postgresql.org/docs/9.5/auth-pg-hba-conf.html)
+* [Git documentation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* [How to Set or Change the Time Zone in Linux](https://linuxize.com/post/how-to-set-or-change-timezone-in-linux/#changing-the-time-zone-in-linux)
+* [How To Set Up a Firewall with UFW on Ubuntu 18.04](https://linuxize.com/post/how-to-setup-a-firewall-with-ufw-on-ubuntu-18-04/)
+* [How to Deploy a Flask App to a Linux Server](https://www.youtube.com/watch?v=YFBRVJPhDGY&list=LLrB69AKIO0ESnb0rzqTZZ4g)
 ## Authors
 Alexandra Baturina
