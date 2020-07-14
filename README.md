@@ -8,32 +8,32 @@
 **Linux Server Configuration** is the capstone project of [Full Stack Web Developer Nanodegree Program](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd0044) provided by Udacity.
 ## Features
 **Linux Server Configuration** project consists of the following steps.
-* Initial configuring of *Ubuntu* Linux server instance on *Amazon Lightsail*
-* Configuring *Apache* web server
-* Configuring *PostgreSQL* database server
-* Deploying  [Book Catalog](https://github.com/alexandrabaturina/Book-Catalog) application
+* Initial configuring of ***Ubuntu*** Linux server instance on ***Amazon Lightsail***
+* Configuring ***Apache*** web server
+* Configuring ***PostgreSQL*** database server
+* Deploying  [**Book Catalog**](https://github.com/alexandrabaturina/Book-Catalog) application
 
 Verify the deployment by visiting http://54.191.192.22.xip.io. 
 ## Getting Started
 To review the project, the ```grader``` user with ```sudo``` permission was created. To log in to the server under ```grader``` user via port ```2200```, use the following command.
-```sh
+```
 $ ssh grader@54.191.192.22 -p 2200 -i ~/.ssh/linuxServerUdacity
 ```
 
 ## Securing Server
 To secure the server, the following steps were taken.
 * All currently installed packages are updated using ```sudo apt-get update``` and ```sudo apt-get upgrade``` commands
-* The *Lightsail* firewall is configured to allow incoming connections for SSH (port ```2200```)
-*  The *Uncomplicated Firewall* (UFW) is configured to allow connections according to project specifications 
-### Configuring Uncomplicated Firewall
-To host ```SSH``` on a non-default port, ```port 22``` is changed to ```port 2200``` in configuration file ```/etc/ssh/sshd_config```.
-```sh
+* The ***Lightsail*** firewall is configured to allow incoming connections for ```SSH``` (port ```2200```)
+*  The ***Uncomplicated Firewall (UFW)*** is configured to allow connections according to project specifications 
+### Configuring UFW
+To host ```SSH``` on a non-default port, ```port 22``` is changed to ```port 2200``` in ```/etc/ssh/sshd_config``` configuration file.
+```
 # What ports, IPs and protocols we listen for
 Port 2200
 ```
 
-*UFW* is configured to only allow connections for ```SSH``` (port 2200), ```HTTP``` (port 80), and ```NTP``` (port 123). Below is the list of current UFW rules.
-```sh
+***UFW*** is configured to only allow connections for ```SSH``` (port 2200), ```HTTP``` (port 80), and ```NTP``` (port 123). Below is the list of current UFW rules.
+```
 Status: active
 Default: deny (incoming), allow (outgoing), disabled (routed)
 
@@ -53,7 +53,7 @@ To                         Action      From
 ## Configuring Server
 ### Configuring Timezone
 The local timezone for ```grader``` is configured to UTC using the following command.
-```sh
+```
 $ sudo timedatectl set-timezone UTC
 ```
 ### Installing and Configuring Apache
@@ -61,17 +61,17 @@ $ sudo timedatectl set-timezone UTC
 ```sh
 $ sudo apt-get install apache2
 ```
-The ```Book Catalog``` project is built with Python 3, so the Python 3 ```mod_wsgi``` package is installed on the server to host ```Book Catalog``` as a mod_wsgi application.
+The **Book Catalog** project is built with Python 3, so the Python 3 ```mod_wsgi``` package is installed on the server to host **Book Catalog** as a mod_wsgi application.
 ```sh
 $ sudo apt-get install libapache2-mod-wsgi-py3
 ```
 ### Installing and Configuring PostgreSQL
-*PostgreSQL* database server is installed using the following command.
+***PostgreSQL*** database server is installed using the following command.
 ```sh
 $ sudo apt-get install postgresql
 ```
-To disable remote connections to the *PostgreSQL* database, in *PostgreSQL* client authentication configuration file  ```/etc/postgresql/9.5/main/pg_hba.conf``` listen addresses are set to ```127.0.0.1```.
-```sh
+To disable remote connections to the ***PostgreSQL*** database, in ***PostgreSQL*** client authentication configuration file  ```/etc/postgresql/9.5/main/pg_hba.conf``` listen addresses are set to ```127.0.0.1```.
+```
 # Database administrative login by Unix domain socket
 local   all             postgres                                peer
 
@@ -85,7 +85,7 @@ host    all             all             127.0.0.1/32            md5
 host    all             all             ::1/128                 md5
 ```
 #### Creating ```catalog``` user
-Database user account named```catalog``` with limited permissions to ```Book Catalog``` database was created via interactive terminal for working with *PostgreSQL* using the following commands.
+Database user account named```catalog``` with limited permissions to **Book Catalog** database was created via interactive terminal for working with ***PostgreSQL*** using the following commands.
 ```sh
 postgres=# create user catalog with login password 'catalog'; 
 CREATE ROLE 
@@ -94,7 +94,7 @@ ALTER ROLE
 ```
 ## Deploying Project
 ### Creating Flask Application Structure
-To allow *Apache* to serve the ```Book Catalog``` project as a ```WSGI``` applicaton, the following folder structure is used.
+To allow ***Apache*** to serve the **Book Catalog** project as a ```WSGI``` applicaton, the following folder structure is used.
 ```sh
 bookCatalog/
     bookcatalog.wsgi
@@ -108,10 +108,13 @@ bookCatalog/
 ```
 ### Installing Software and Python Dependencies
 The following programs are installed on the server.
-* **git**: to clone the ```Book Catalog``` project from *GitHub*
+* **git**: to clone the **Book Catalog** project from *GitHub*
 * **pip**: to install some Python modules
 
-The ```Book Catalog``` project was built using ```Flask```, which was installed via ```$ pip install Flask```.
+The **Book Catalog** project was built using ```Flask```, which was installed using the commmand below.
+```sh
+$ pip install Flask
+```
 
 The following Python modules and dependencies are installed on the server.
 * **flask_sqlalchemy**: to work with *SQLAlchemy*
@@ -120,7 +123,7 @@ The following Python modules and dependencies are installed on the server.
 * **oauth2client**: to work with *OAuth 2.0*
 ### Creating Configuration File
 Virtual host configured in ```bookCatalog.conf``` file under ```/etc/apache2/sites-available/```.
-```sh
+```conf
 <VirtualHost *:80>
                 ServerName 54.191.192.22
                 WSGIScriptAlias / /var/www/bookCatalog/bookcatalog.wsgi
@@ -159,7 +162,7 @@ application.secret_key = 'alexandrabaturina'
 ```
 ### Pupulating the Database
 Under ```catalog``` user, the empty ```catalogitems``` database is created.
-```sh
+```
 $ CREATE DATABASE catalogitems;
 ```
 For demonstration purposes, the ```catalogitems``` database is populated from the ```lotsoitems.py``` file using the following commands.
