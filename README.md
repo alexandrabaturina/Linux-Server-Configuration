@@ -1,10 +1,17 @@
 # Linux Server Configuration
+## Overview
+**Linux Server Configuration** project has the following goals.
+* Learn how to access, secure, and perform the initial configuration of a bare-bones Linux server
+* Learn how to install and configure a web and database servers
+* Host a web application
 
+**Linux Server Configuration** is the capstone project of [Full Stack Web Developer Nanodegree Program](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd0044) provided by Udacity.
+## Features
 **Linux Server Configuration** project consists of the following steps.
 * Initial configuring of *Ubuntu* Linux server instance on *Amazon Lightsail*
 * Configuring *Apache* web server
 * Configuring *PostgreSQL* database server
-* Deploying  [```Book Catalog```](https://github.com/alexandrabaturina/Book-Catalog) application
+* Deploying  [Book Catalog](https://github.com/alexandrabaturina/Book-Catalog) application
 
 Verify the deployment by visiting http://54.191.192.22.xip.io. 
 ## Getting Started
