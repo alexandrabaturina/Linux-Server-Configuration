@@ -1,30 +1,34 @@
-# Linux Server Configuration
+# Full Stack Web Development Nanodegree Capstone: Linux Server Configuration
 ## Overview
-**Linux Server Configuration** project has the following goals.
-* Learn how to access, secure, and perform the initial configuration of a bare-bones Linux server
-* Learn how to install and configure a web and database servers
+**Linux Server Configuration** is the capstone project of [Full Stack Web Developer Nanodegree Program](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd0044) provided by Udacity.
+
+**Linux Server Configuration** project has the following goals:
+* Access, secure, and perform the initial configuration of a bare-bones Linux server
+* Install and configure a web server
+* Install and configure database server
 * Host a web application
 
-**Linux Server Configuration** is the capstone project of [Full Stack Web Developer Nanodegree Program](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd0044) provided by Udacity.
+[**Book Catalog**](https://github.com/alexandrabaturina/Book-Catalog) Flask-based application is built earlier as Project 2 of [Full Stack Web Developer Nanodegree Program](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd0044) provided by Udacity.
+
+Verify the deployment by visiting http://54.191.192.22.xip.io.  
 ## Features
-**Linux Server Configuration** project consists of the following steps.
+**Linux Server Configuration** project consists of the following steps:
 * Initial configuring of ***Ubuntu*** Linux server instance on ***Amazon Lightsail***
 * Configuring ***Apache*** web server
 * Configuring ***PostgreSQL*** database server
-* Deploying  [**Book Catalog**](https://github.com/alexandrabaturina/Book-Catalog) application
+* Deploying  [**Book Catalog**](https://github.com/alexandrabaturina/Book-Catalog) as mod_wsgi application
 
-Verify the deployment by visiting http://54.191.192.22.xip.io. 
 ## Getting Started
-To review the project, the ```grader``` user with ```sudo``` permission was created. To log in to the server under ```grader``` user via port ```2200```, use the following command.
+To review the project, the ```grader``` user with ```sudo``` permission was created. To log in to the server under ```grader``` user via port ```2200```, use the following command:
 ```
-$ ssh grader@54.191.192.22 -p 2200 -i ~/.ssh/linuxServerUdacity
+ssh grader@54.191.192.22 -p 2200 -i ~/.ssh/linuxServerUdacity
 ```
 
 ## Securing Server
-To secure the server, the following steps were taken.
-* All currently installed packages are updated using ```sudo apt-get update``` and ```sudo apt-get upgrade``` commands
-* The ***Lightsail*** firewall is configured to allow incoming connections for ```SSH``` (port ```2200```)
-*  The ***Uncomplicated Firewall (UFW)*** is configured to allow connections according to project specifications 
+To secure the server, the following steps were taken:
+* All currently installed packages are updated using ```sudo apt-get update``` and ```sudo apt-get upgrade``` commands.
+* The ***Lightsail*** firewall is configured to allow incoming connections for ```SSH``` (port ```2200```).
+*  The ***Uncomplicated Firewall (UFW)*** is configured to allow connections according to project specifications.
 ### Configuring UFW
 To host ```SSH``` on a non-default port, ```port 22``` is changed to ```port 2200``` in ```/etc/ssh/sshd_config``` configuration file.
 ```
@@ -68,7 +72,7 @@ $ sudo apt-get install libapache2-mod-wsgi-py3
 ### Installing and Configuring PostgreSQL
 ***PostgreSQL*** database server is installed using the following command.
 ```sh
-$ sudo apt-get install postgresql
+sudo apt-get install postgresql
 ```
 To disable remote connections to the ***PostgreSQL*** database, in ***PostgreSQL*** client authentication configuration file  ```/etc/postgresql/9.5/main/pg_hba.conf``` listen addresses are set to ```127.0.0.1```.
 ```
@@ -113,7 +117,7 @@ The following programs are installed on the server.
 
 The **Book Catalog** project was built using ```Flask```, which was installed using the commmand below.
 ```sh
-$ pip install Flask
+pip install Flask
 ```
 
 The following Python modules and dependencies are installed on the server.
@@ -145,8 +149,8 @@ Virtual host configured in ```bookCatalog.conf``` file under ```/etc/apache2/sit
 ```
 To enable the configured virtual host and disable the default Apache configuration, the following commands were used.
 ```sh
-$ sudo a2ensite bookCatalog
-$ sudo a2dissite 000-default.conf
+sudo a2ensite bookCatalog
+sudo a2dissite 000-default.conf
 ```
 ### Creating WSGI File
 The ```bookcatalog.wsgi``` file under ```/var/www/bookCatalog/``` is below.
@@ -163,12 +167,12 @@ application.secret_key = 'alexandrabaturina'
 ### Pupulating the Database
 Under ```catalog``` user, the empty ```catalogitems``` database is created.
 ```
-$ CREATE DATABASE catalogitems;
+CREATE DATABASE catalogitems;
 ```
-For demonstration purposes, the ```catalogitems``` database is populated from the ```lotsoitems.py``` file using the following commands.
+For demonstration purposes, the ```catalogitems``` database is populated from the ```lotsoibooks.py``` file using the following commands:
 ```sh
-$ python3 database_setup.py
-$ python3 lotsofitems.py
+python database_setup.py
+python lotsofbooks.py
 ```
 ## List of Resourses
 * [Flask mod_wsgi official documentation](https://flask.palletsprojects.com/en/1.1.x/deploying/mod_wsgi/#configuring-apache)
