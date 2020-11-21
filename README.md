@@ -18,12 +18,6 @@ Verify the deployment by visiting http://54.191.192.22.xip.io.
 * Configuring ***PostgreSQL*** database server
 * Deploying  [**Book Catalog**](https://github.com/alexandrabaturina/Book-Catalog) as mod_wsgi application
 
-## Getting Started
-To review the project, the ```grader``` user with ```sudo``` permission was created. To log in to the server under ```grader``` user via port ```2200```, use the following command:
-```
-ssh grader@54.191.192.22 -p 2200 -i ~/.ssh/linuxServerUdacity
-```
-
 ## Securing Server
 To secure the server, the following steps were taken:
 * All currently installed packages are updated using ```sudo apt-get update``` and ```sudo apt-get upgrade``` commands.
@@ -58,16 +52,16 @@ To                         Action      From
 ### Configuring Timezone
 The local timezone for ```grader``` is configured to UTC using the following command.
 ```
-$ sudo timedatectl set-timezone UTC
+sudo timedatectl set-timezone UTC
 ```
 ### Installing and Configuring Apache
 *Apache* web server is installed using the following command.
 ```sh
-$ sudo apt-get install apache2
+sudo apt-get install apache2
 ```
 The **Book Catalog** project is built with Python 3, so the Python 3 ```mod_wsgi``` package is installed on the server to host **Book Catalog** as a mod_wsgi application.
 ```sh
-$ sudo apt-get install libapache2-mod-wsgi-py3
+sudo apt-get install libapache2-mod-wsgi-py3
 ```
 ### Installing and Configuring PostgreSQL
 ***PostgreSQL*** database server is installed using the following command.
@@ -108,7 +102,7 @@ bookCatalog/
         __init__.py
         client_secrets.json
         database_setup.py
-        lotsofitems.py
+        lotsofbooks.py
 ```
 ### Installing Software and Python Dependencies
 The following programs are installed on the server.
@@ -120,7 +114,7 @@ The **Book Catalog** project was built using ```Flask```, which was installed us
 pip install Flask
 ```
 
-The following Python modules and dependencies are installed on the server.
+The following Python modules and dependencies are installed on the server:
 * **flask_sqlalchemy**: to work with *SQLAlchemy*
 * **httplib2**: to provide web access via *HTTP*
 * **psycopg2**: to connect and work with *PostgreSQL* server
@@ -182,4 +176,4 @@ python lotsofbooks.py
 * [How To Set Up a Firewall with UFW on Ubuntu 18.04](https://linuxize.com/post/how-to-setup-a-firewall-with-ufw-on-ubuntu-18-04/)
 * [How to Deploy a Flask App to a Linux Server](https://www.youtube.com/watch?v=YFBRVJPhDGY&list=LLrB69AKIO0ESnb0rzqTZZ4g)
 ## Authors
-Alexandra Baturina
+    + Alexandra Baturina
